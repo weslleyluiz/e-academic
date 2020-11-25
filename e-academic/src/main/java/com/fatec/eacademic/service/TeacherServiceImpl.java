@@ -46,7 +46,6 @@ public class TeacherServiceImpl implements TeacherService {
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
         user.setCpf(registration.getCpf());  
         user.setSubjects(Arrays.asList(new Subject()));
-        user.setCourses(Arrays.asList(new Course()));
         return teacherRepository.save(user);
     }
 

@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS eacademic CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+USE eacademic;
+
 CREATE TABLE `course` (
     `id` int NOT NULL,
     `name` varchar(255) DEFAULT NULL,
@@ -27,7 +31,7 @@ CREATE TABLE `student` (
   `password` varchar(255) DEFAULT NULL,
   `cpf` varchar(11) DEFAULT NULL,
   `ra` varchar(13) DEFAULT NULL,
-  PRIMARY KEY (`id`), 
+  PRIMARY KEY (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `teacher` (
@@ -37,7 +41,7 @@ CREATE TABLE `teacher` (
   `last_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `cpf` varchar(11) DEFAULT NULL,
-  PRIMARY KEY (`id`), 
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `students_subjects` (
@@ -53,10 +57,3 @@ CREATE TABLE `teachers_subjects` (
   FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`), 
   FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-CREATE TABLE `teachers_courses` (
-  `teacher_id` int NOT NULL,
-  `course_id` int NOT NULL, 
-  FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`), 
-  FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci; 

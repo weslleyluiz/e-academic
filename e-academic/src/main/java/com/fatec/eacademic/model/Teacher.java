@@ -28,17 +28,8 @@ public class Teacher {
             name = "teacher_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(
             name = "subject_id", referencedColumnName = "id"))
-    private Collection < Subject > subjects;
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-        name = "teachers_courses",
-        joinColumns = @JoinColumn(
-            name = "teacher_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(
-            name = "course_id", referencedColumnName = "id"))
-    private Collection < Course > courses;
-
+    private Collection<Subject> subjects;
+ 
     public Teacher() {}
 
     public Teacher(String name, String lastName, String email, String password, String cpf) {
@@ -49,14 +40,13 @@ public class Teacher {
         this.cpf = cpf;
     }
 
-    public Teacher(String name, String lastName, String email, String password, String cpf, Collection < Subject > subjects,Collection < Course > courses) {
+    public Teacher(String name, String lastName, String email, String password, String cpf, Collection<Subject> subjects) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.subjects = subjects;
-        this.cpf = cpf;
-        this.courses = courses;
+        this.cpf = cpf; 
     }
  
     public Long getId() {
@@ -115,13 +105,6 @@ public class Teacher {
         this.subjects = subjects;
     }
 
-    public Collection < Course > getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Collection < Course > courses) {
-        this.courses = courses;
-    }
     @Override
     public String toString() {
         return "Teacher{" +
@@ -131,8 +114,7 @@ public class Teacher {
             ", email='" + email + '\'' +
             ", cpf='" + cpf + '\'' +
             ", password='" + "*********" + '\'' +
-            ", subjects=" + subjects +
-            ", courses=" + courses +
+            ", subjects=" + subjects + 
             '}';
     }
 }
