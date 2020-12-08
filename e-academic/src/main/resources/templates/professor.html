@@ -23,19 +23,30 @@
 		<style class="cp-pen-styles"> @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 		</style>
 		
-		<title>Login</title>
+		<title>Professor</title>
 		<meta charset='UTF-8'>
 		
 	</head>
 	
 	<body>
+		<div class="title_body">
+			<h1>Gerir Professor</h1>
 		</div>
 		<div class="form">
-			<h1>Login</h1>
 			<form method="post">
-				<input type="text" name="user" placeholder="Usuário" required="required" />
-				<input type="password" name="password" placeholder="Senha" required="required" />
-				<button type="submit" class="btn btn-primary btn-block btn-large">enviar</button>
+				<label for="id">ID:</label>
+				<input type="text" name="id" placeholder="id do professor" required="required" />
+				<label for="nome">Nome:</label>
+				<input type="text" name="nome" placeholder="primeiro nome professor" required="required" />
+				<label for="sobrenome">Sobrenome:</label>
+				<input type="text" name="sobrenome" placeholder="ultimo nome professor" required="required" />
+				<label for="email">Email:</label>
+				<input type="text" name="email" placeholder="email do professor" required="required" />
+				<label for="senha">Senha:</label>
+				<input type="password" name="senha" placeholder="senha" required="required" />
+				<label for="cpf">CPF:</label>
+				<input type="text" name="cpf" placeholder="cpf do professor" required="required" />
+				<button type="submit" class="btn btn-primary btn-block btn-large">salvar</button>
 			</form>
 		</div>
 	</body>
